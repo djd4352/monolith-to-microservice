@@ -15,11 +15,11 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t uda-reverse-proxy .
-  - docker tag uda-reverse-proxy djd4352/uda-reverse-proxy:latest
+  - docker build -t udagram-reverse-proxy .
+  - docker tag udagram-reverse-proxy djd4352/uda-reverse-proxy:1.0
 
 # Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push djd4352/uda-reverse-proxy
+  - docker push djd4352/udagram-reverse-proxy:1.0
 # This is a test update
