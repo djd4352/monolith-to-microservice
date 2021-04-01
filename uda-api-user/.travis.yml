@@ -15,9 +15,9 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t uda-api-user --build-arg POSTGRES_USERNAME=${POSTGRES_USERNAME} --build-arg POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_HOST=${POSTGRES_HOST} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg AWS_BUCKET=${AWS_BUCKET} --build-arg AWS_REGION=${AWS_REGION} --build-arg AWS_PROFILE=${AWS_PROFILE} --build-arg JWT_SECRET=${JWT_SECRET} --build-arg URL=${URL} .
-  - docker tag uda-api-user djd4352/uda-api-user:latest
+  - docker build -t udagram-api-user:1.0 --build-arg POSTGRES_USERNAME=${POSTGRES_USERNAME} --build-arg POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_HOST=${POSTGRES_HOST} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg AWS_BUCKET=${AWS_BUCKET} --build-arg AWS_REGION=${AWS_REGION} --build-arg AWS_PROFILE=${AWS_PROFILE} --build-arg JWT_SECRET=${JWT_SECRET} --build-arg URL=${URL} .
+  - docker tag udagram-api-user:1.0 djd4352/udagram-api-user:1.0
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push djd4352/uda-api-user
+  - docker push djd4352/udagram-api-user:1.0
