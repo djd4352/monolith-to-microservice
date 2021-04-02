@@ -5,7 +5,7 @@ metadata:
     service: backend-feed
   name: backend-feed
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       service: backend-feed
@@ -23,7 +23,7 @@ spec:
             memory: "64Mi"
             cpu: "250m"
           limits:
-            memory: "512Mi"
+            memory: "256Mi"
             cpu: "500m"                  
         env:
         - name: URL
